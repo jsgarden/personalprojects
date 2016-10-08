@@ -11,7 +11,7 @@ LGRN='\033[1;32m'
 LCYN='\033[1;36m'
 NC='\033[0m'
 
-#changing directory
+# Changing directory
 cd "$HOME/Downloads"
 
 
@@ -43,7 +43,7 @@ function filename {
 # Function for the sudo dpkg command
 function cmpl {
  echo
- echo -e "${YEL}Launching Compilation${NC}"
+ echo -e "${YEL}Launching Extraction${NC}"
  sleep 1
  sudo dpkg -i $flnm
  
@@ -73,7 +73,7 @@ function autoremove {
  echo -e "${LCYN}Do you wish to run autoremove ? (Y/N) ${WHT}"
  read autorm
  
- if [ "$autorm" == "y" ]
+ if [ "$autorm" == "y" ] && [ "$autorm" == "Y" ]
 	then
 		echo
 		echo -e "${LCYN}Cleaning...${NC}"
@@ -86,7 +86,7 @@ function autoremove {
 		sleep 1
 		restart
 		
- elif ["$autorm" == "n" ]
+ elif ["$autorm" == "n" ] && [ "$autorm" == "N" ]
 	then
 		restart
 fi }
@@ -96,12 +96,11 @@ fi }
  read re_instl
  echo
  
- if [ "$re_instl" == "r" ]
+ if [ "$re_instl" == "r" ] && [ "$re_instl" == "R" ]
 	then
 		filename
-		echo
 
-elif [ "$re_instl" == "e" ]
+elif [ "$re_instl" == "e" ] && [ "$re_instl" == "E" ]
 	then
 		echo -e "${RED}Exiting..."
 		sleep 1
