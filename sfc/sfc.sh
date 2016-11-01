@@ -7,7 +7,7 @@
 # Declaring Colors
 
 
-# Changing Directory
+# Changing Directory (assuming its in the Downloads folder)
 cd "$HOME/Downloads"
 
 
@@ -35,3 +35,16 @@ if [ "yn_flnm" == "y" ] && [ "yn_flnm" == "Y" ];
 elif [ "yn_flnm" == "n" ] && [ "yn_flnm" == "N" ];
     then
         restart
+
+
+# Start the extraction commands ()
+function extr {
+
+echo -e "Starting extraction..."
+echo
+
+if [ "fltp" == "tar.gz"]
+    then
+        #do command to extract .tar.gz files
+        
+elif
