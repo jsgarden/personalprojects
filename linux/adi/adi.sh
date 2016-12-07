@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Potential bugs:
-# none for now
+# CORRECTED - Program crashes when entering auto remove's y or n
 
 # Declaring colors
 YEL='\033[1;33m'
@@ -27,11 +27,11 @@ function filename {
  echo -e "${YEL}Are you sure ? (Y/N)${WHT}"
  read yn_flnm
 
- if [ "$yn_flnm" == "y" ]
+ if [ "$yn_flnm" == "y" ] || [ "$yn_flnm" == "Y" ]
 	then
 		cmpl
 		
- elif [ "$yn_flnm" == "n" ]
+ elif [ "$yn_flnm" == "n" ] || [ "$yn_flnm" == "N" ]
 	then
 		filename
 		echo
@@ -73,7 +73,7 @@ function autoremove {
  echo -e "${LCYN}Do you wish to run autoremove ? (Y/N) ${WHT}"
  read autorm
  
- if [ "$autorm" == "y" ] && [ "$autorm" == "Y" ]
+ if [ "$autorm" == "y" ] || [ "$autorm" == "Y" ]
 	then
 		echo
 		echo -e "${LCYN}Cleaning...${NC}"
@@ -86,7 +86,7 @@ function autoremove {
 		sleep 1
 		restart
 		
- elif ["$autorm" == "n" ] && [ "$autorm" == "N" ]
+ elif ["$autorm" == "n" ] || [ "$autorm" == "N" ]
 	then
 		restart
 fi }
@@ -96,11 +96,11 @@ fi }
  read re_instl
  echo
  
- if [ "$re_instl" == "r" ] && [ "$re_instl" == "R" ]
+ if [ "$re_instl" == "r" ] || [ "$re_instl" == "R" ]
 	then
 		filename
 
-elif [ "$re_instl" == "e" ] && [ "$re_instl" == "E" ]
+elif [ "$re_instl" == "e" ] || [ "$re_instl" == "E" ]
 	then
 		echo -e "${RED}Exiting..."
 		sleep 1
